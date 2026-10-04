@@ -50,7 +50,7 @@ The installed CLI scans `app/commands`, so the custom command is `app/commands/M
 
 ## Render
 
-Deploy the Dockerfile from branch `codex/lab6-products-api`. Set `APP_ENV=production`, `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `DB_SSL_CA=/var/www/html/ca.pem`, `JWT_SECRET`, `REFRESH_TOKEN_KEY`, `AUTH_USERNAME`, `AUTH_PASSWORD`, `AUTH_EMAIL`, and `FRONTEND_URL` in Render's environment settings. Do not commit `.env`.
+Deploy the Dockerfile from branch `codex/lab6-products-api`. Set `APP_ENV=production`, `APP_KEY`, `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `DB_SSL_CA=/var/www/html/ca.pem`, `JWT_SECRET`, `REFRESH_TOKEN_KEY`, `AUTH_USERNAME`, `AUTH_PASSWORD`, `AUTH_EMAIL`, and `FRONTEND_URL` in Render's environment settings. Generate a random `APP_KEY` for production session security. Do not commit `.env`.
 
 Run migrations and create the login account against Aiven before testing the deployed API. The React static site must set `VITE_API_URL` to the deployed `/index.php/api` URL. Set `FRONTEND_URL` to that site's exact origin; comma-separated local origins may be added for development.
 
