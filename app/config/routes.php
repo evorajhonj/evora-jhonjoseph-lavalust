@@ -61,3 +61,22 @@ $router->match('/products/edit/{id}', 'ProductController::edit', 'GET|POST')
 $router->post('/products/delete/{id}', 'ProductController::delete')
        ->where_number('id')
        ->middleware('product_auth');
+
+$router->get('/api', 'ApiController::index');
+$router->post('/api/login', 'ApiController::login');
+$router->post('/api/logout', 'ApiController::logout');
+$router->get('/api/products', 'ApiController::products');
+$router->post('/api/products', 'ApiController::create');
+$router->match('/api/products/{id}', 'ApiController::update', 'PUT|PATCH')->where_number('id');
+$router->delete('/api/products/{id}', 'ApiController::delete')->where_number('id');
+$router->match('/api/{path}', 'ApiController::preflight', 'OPTIONS')->where('path', '.*');
+
+if (PHP_SAPI === 'cli') {
+    $router->get('/create-migration/{migration_class}', 'MigrationController::create_migration');
+    $router->get('/migrate', 'MigrationController::migrate');
+    $router->get('/rollback', 'MigrationController::rollback');
+    $router->get('/rollback-all', 'MigrationController::rollback_all');
+    $router->get('/refresh', 'MigrationController::refresh');
+    $router->get('/status', 'MigrationController::status');
+    $router->get('/seed-admin', 'MigrationController::seed_admin');
+}
