@@ -1,8 +1,6 @@
 # Laboratory Exercise 6
 
-Jhon Joseph Evora  
-BSIT 3-F2  
-MCC2024-00076
+Jhon Joseph Evora · BSIT 3-F2 · MCC2024-00076
 
 LavaLust provides the authenticated JSON API. The separate React project sends HTTP requests to it. Only the API connects to MySQL.
 
